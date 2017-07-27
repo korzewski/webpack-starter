@@ -1,11 +1,12 @@
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 import './index.html';
 import './app.scss';
 
-function component() {
-  const divNode = document.createElement('div');
-  divNode.innerHTML = 'Hello webpack!';
-
-  return divNode;
+class HelloMessage extends Component {
+  render() {
+    return <div>{this.props.message}</div>;
+  }
 }
 
-document.body.appendChild(component());
+render(<HelloMessage message="webpack starter!" />, document.getElementById('app'));
