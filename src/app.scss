@@ -1,7 +1,11 @@
 $bg-color: #333;
-$font-color: #fff;
+$font-color: #eee;
 
 body {
   background-color: $bg-color;
+  color: $font-color;
+}
+
+a {
   color: $font-color;
 }

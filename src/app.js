@@ -1,12 +1,37 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {HashRouter, Route, Link} from 'react-router-dom';
 import './index.html';
 import './app.scss';
 
-class HelloMessage extends Component {
+class App extends Component {
   render() {
-    return <div>{this.props.message}</div>;
+    return (
+      <HashRouter>
+        <div>
+          <ul>
+            <li><Link to="/">Homepage</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+          
+          <Route exact path="/" component={Homepage} />
+          <Route path="/about" component={AboutPage} />
+        </div>
+      </HashRouter>
+    );
   }
 }
 
-render(<HelloMessage message="webpack starter!" />, document.getElementById('app'));
+class Homepage extends Component {
+  render() {
+    return <div>Homepage!</div>;
+  }
+}
+
+class AboutPage extends Component {
+  render() {
+    return <div>AboutPage!</div>;
+  }
+}
+
+render(<App />, document.getElementById('app'));
